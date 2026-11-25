@@ -1,0 +1,7 @@
+---
+- name: installing docker
+  hosts:
+  - _docker
+  tasks:
+   - name: installing
+     script: docker.sh

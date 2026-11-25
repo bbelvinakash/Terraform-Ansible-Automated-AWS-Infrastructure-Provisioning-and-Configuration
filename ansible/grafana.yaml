@@ -1,0 +1,15 @@
+---
+- name: grafana Installation
+  hosts: 
+   - _grafana01  
+  become: true              
+  tasks:
+  - name: Copy Grafana script
+    copy:
+      src: grafana.sh
+      dest: /tmp/grafana.sh
+      mode: '0755'
+
+  - name: Run Grafana script
+    become: true
+    shell: /tmp/grafana.sh

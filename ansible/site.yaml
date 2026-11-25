@@ -1,0 +1,5 @@
+---
+- import_playbook: docker.yaml
+- import_playbook: master.yaml
+- import_playbook: worker.yaml
+- import_playbook: grafana.yaml

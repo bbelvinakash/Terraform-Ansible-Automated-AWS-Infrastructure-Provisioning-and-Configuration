@@ -1,0 +1,16 @@
+---
+- name: Kubernetes Installation
+  hosts: 
+   - _master   
+  become: true              
+  tasks:
+    - name: Copy script
+      copy:
+        src: kubemaster.sh
+        dest: /tmp/kubemaster.sh
+        mode: '0755'
+
+    - name: Run script async
+      shell: /tmp/kubemaster.sh
+      async: 7200
+      poll: 60

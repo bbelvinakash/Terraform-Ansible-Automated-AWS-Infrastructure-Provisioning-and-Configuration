@@ -1,0 +1,17 @@
+---
+- hosts:
+    - _worker1
+    - _worker2
+  become: yes
+
+  tasks:
+    - name: Copy worker script
+      copy:
+        src: kubeworker.sh
+        dest: /tmp/kubeworker.sh
+        mode: '0755'
+
+    - name: Run worker script
+      shell: /tmp/kubeworker.sh
+      async: 7200
+      poll: 60 
